@@ -1,0 +1,14 @@
+ΓΡΗΓΟΡΗ ΕΓΚΑΤΑΣΤΑΣΗ
+
+1. ΜΗΝ ανεβάσεις αυτό το ZIP αυτούσιο.
+2. Αποσυμπίεσέ το.
+3. Άνοιξε GitHub > IoannisPharm/Derma-Quiz > Code.
+4. Add file > Upload files.
+5. Σύρε ΟΛΑ τα περιεχόμενα του φακέλου Derma-Quiz-GitHub-Ready.
+6. Έλεγξε ότι φαίνεται και το .github/workflows/pages.yml.
+7. Commit directly to main.
+8. Settings > Pages > Source: GitHub Actions.
+9. Actions > περίμενε πράσινο check.
+
+Πιθανό live URL:
+https://ioannispharm.github.io/Derma-Quiz/

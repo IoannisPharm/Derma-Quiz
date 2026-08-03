@@ -1,0 +1,15 @@
+{
+  "name": "derma-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mobile-first static scientific learning quiz.",
+  "scripts": {
+    "test": "node scripts/validate-questions.mjs",
+    "validate": "node scripts/validate-questions.mjs",
+    "check:js": "node --check app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

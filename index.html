@@ -1,906 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#18236b" />
-  <title>SELGAMIS® Knowledge Quiz</title>
-  <style>
-    :root {
-      --navy: #18236b;
-      --navy-2: #0e174d;
-      --blue: #3159d8;
-      --cyan: #29b6c8;
-      --bg: #f4f6fb;
-      --card: #ffffff;
-      --text: #172033;
-      --muted: #6b7280;
-      --line: #dfe4ef;
-      --ok: #157347;
-      --ok-bg: #eaf7ef;
-      --bad: #b42318;
-      --bad-bg: #fff0ee;
-      --warning: #8a5a00;
-      --warning-bg: #fff7df;
-      --shadow: 0 18px 50px rgba(24, 35, 107, 0.10);
-      --radius: 22px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(41,182,200,.12), transparent 28rem),
-        linear-gradient(180deg, #eef2ff 0, var(--bg) 18rem);
-      color: var(--text);
-    }
-
-    button, select, input { font: inherit; }
-    button { cursor: pointer; }
-
-    .shell {
-      width: min(880px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 22px 0 42px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 900;
-      letter-spacing: .02em;
-      color: var(--navy);
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 1.05rem;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--navy), var(--cyan));
-      box-shadow: 0 10px 26px rgba(24,35,107,.25);
-    }
-
-    .best {
-      font-size: .88rem;
-      color: var(--muted);
-      text-align: right;
-    }
-    .best strong { color: var(--navy); }
-
-    .card {
-      background: rgba(255,255,255,.96);
-      border: 1px solid rgba(255,255,255,.9);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      padding: clamp(25px, 5vw, 48px);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      right: -90px;
-      top: -110px;
-      background: linear-gradient(135deg, rgba(49,89,216,.16), rgba(41,182,200,.18));
-    }
-
-    .eyebrow {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: #edf1ff;
-      color: var(--navy);
-      font-weight: 800;
-      font-size: .78rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      position: relative;
-      z-index: 1;
-      font-size: clamp(2rem, 7vw, 3.8rem);
-      line-height: 1;
-      margin: 20px 0 14px;
-      letter-spacing: -.045em;
-      color: var(--navy-2);
-    }
-
-    .lead {
-      position: relative;
-      z-index: 1;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.65;
-      margin: 0 0 28px;
-    }
-
-    .config-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.45fr .75fr;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
-    .field label {
-      display: block;
-      font-size: .78rem;
-      font-weight: 850;
-      color: var(--navy);
-      margin: 0 0 7px 2px;
-      text-transform: uppercase;
-      letter-spacing: .045em;
-    }
-
-    select, .text-answer {
-      width: 100%;
-      min-height: 50px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 0 14px;
-      color: var(--text);
-      background: #fff;
-      outline: none;
-      transition: .2s;
-    }
-
-    select:focus, .text-answer:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(49,89,216,.10);
-    }
-
-    .primary, .secondary, .ghost {
-      border: 0;
-      border-radius: 14px;
-      min-height: 50px;
-      padding: 0 18px;
-      font-weight: 850;
-      transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
-    }
-
-    .primary {
-      color: white;
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      box-shadow: 0 12px 26px rgba(49,89,216,.22);
-    }
-    .secondary {
-      color: var(--navy);
-      background: #edf1ff;
-    }
-    .ghost {
-      color: var(--navy);
-      background: transparent;
-      border: 1px solid var(--line);
-    }
-    .primary:hover, .secondary:hover, .ghost:hover { transform: translateY(-1px); }
-    .primary:disabled, .secondary:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-
-    .full { width: 100%; }
-
-    .note {
-      position: relative;
-      z-index: 1;
-      margin-top: 18px;
-      padding: 13px 15px;
-      border-radius: 14px;
-      background: var(--warning-bg);
-      color: var(--warning);
-      font-size: .82rem;
-      line-height: 1.55;
-    }
-
-    .quiz-card { padding: clamp(20px, 4vw, 38px); }
-    .hidden { display: none !important; }
-
-    .quiz-head {
-      display: flex;
-      gap: 18px;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 18px;
-    }
-
-    .section-chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 29px;
-      padding: 0 10px;
-      border-radius: 999px;
-      color: var(--navy);
-      background: #edf1ff;
-      font-weight: 800;
-      font-size: .78rem;
-    }
-
-    .counter {
-      color: var(--muted);
-      font-weight: 750;
-      font-size: .9rem;
-      white-space: nowrap;
-    }
-
-    .progress {
-      height: 9px;
-      background: #e9edf6;
-      border-radius: 99px;
-      overflow: hidden;
-      margin-bottom: 28px;
-    }
-    .progress > div {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      transition: width .35s ease;
-    }
-
-    .question {
-      font-size: clamp(1.25rem, 4vw, 1.85rem);
-      line-height: 1.32;
-      letter-spacing: -.02em;
-      color: var(--navy-2);
-      margin: 0 0 22px;
-    }
-
-    .options {
-      display: grid;
-      gap: 11px;
-    }
-
-    .option {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      text-align: left;
-      min-height: 62px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
-      color: var(--text);
-      transition: .18s ease;
-    }
-    .option:hover {
-      border-color: #aebbea;
-      background: #f8f9ff;
-      transform: translateY(-1px);
-    }
-    .option .letter {
-      flex: 0 0 34px;
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 11px;
-      background: #f0f3fa;
-      color: var(--navy);
-      font-weight: 900;
-    }
-    .option.correct {
-      border-color: #70bf92;
-      background: var(--ok-bg);
-      color: var(--ok);
-    }
-    .option.correct .letter { background: #ccebd8; color: var(--ok); }
-    .option.wrong {
-      border-color: #ef9c95;
-      background: var(--bad-bg);
-      color: var(--bad);
-    }
-    .option.wrong .letter { background: #ffd8d4; color: var(--bad); }
-    .option.locked { cursor: default; transform: none; }
-
-    .text-row {
-      display: flex;
-      gap: 10px;
-    }
-    .text-answer { min-height: 54px; }
-    .text-row .primary { flex: 0 0 auto; }
-
-    .feedback {
-      margin-top: 18px;
-      border-radius: 16px;
-      padding: 15px 16px;
-      line-height: 1.55;
-      animation: rise .25s ease;
-    }
-    .feedback.correct { background: var(--ok-bg); color: var(--ok); }
-    .feedback.wrong { background: var(--bad-bg); color: var(--bad); }
-    .feedback-title { font-weight: 900; margin-bottom: 4px; }
-    .feedback strong { color: inherit; }
-
-    .actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .result {
-      padding: clamp(25px, 5vw, 48px);
-      text-align: center;
-    }
-    .score-ring {
-      width: 172px;
-      height: 172px;
-      margin: 4px auto 22px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      position: relative;
-      background: conic-gradient(var(--blue) 0deg, #e7ebf4 0deg);
-    }
-    .score-ring::after {
-      content: "";
-      position: absolute;
-      inset: 13px;
-      border-radius: 50%;
-      background: white;
-    }
-    .score-inner {
-      position: relative;
-      z-index: 1;
-    }
-    .score-value {
-      font-size: 2.6rem;
-      line-height: 1;
-      font-weight: 950;
-      letter-spacing: -.05em;
-      color: var(--navy);
-    }
-    .score-label { color: var(--muted); font-size: .84rem; margin-top: 5px; }
-
-    .result h2 {
-      margin: 0 0 8px;
-      color: var(--navy-2);
-      font-size: 1.75rem;
-    }
-    .result-sub { margin: 0 auto 24px; color: var(--muted); }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 22px 0;
-    }
-    .stat {
-      padding: 15px 8px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-    }
-    .stat strong {
-      display: block;
-      color: var(--navy);
-      font-size: 1.35rem;
-    }
-    .stat span { color: var(--muted); font-size: .78rem; }
-
-    .result-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .review {
-      text-align: left;
-      margin-top: 26px;
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-    }
-    .review h3 { color: var(--navy-2); }
-    .review-item {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .review-item:last-child { border-bottom: 0; }
-    .review-q { font-weight: 800; margin-bottom: 5px; }
-    .review-a { color: var(--ok); font-size: .9rem; }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: .78rem;
-      padding: 22px 10px 0;
-      line-height: 1.5;
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 620px) {
-      .shell { width: min(100% - 18px, 880px); padding-top: 12px; }
-      .topbar { padding: 0 4px; }
-      .best { display: none; }
-      .config-grid { grid-template-columns: 1fr; }
-      .text-row { flex-direction: column; }
-      .text-row .primary { width: 100%; }
-      .quiz-head { gap: 8px; }
-      .stats { gap: 6px; }
-      .stat { padding: 12px 4px; }
-      .result-actions { grid-template-columns: 1fr; }
-      .actions .primary { width: 100%; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15256f">
+  <meta name="description" content="Εσωτερικό εκπαιδευτικό quiz για τα δερματολογικά προϊόντα.">
+  <title>Derma Quiz · SELGAMIS®</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <noscript>
-    <div style="max-width:880px;margin:16px auto;padding:16px 18px;border-radius:14px;
-                background:#fff0ee;color:#b42318;font-family:system-ui,sans-serif;
-                border:1px solid #ef9c95;line-height:1.5">
-      <strong>Το JavaScript δεν εκτελείται σε αυτή την προεπισκόπηση.</strong><br>
-      Κατέβασε το αρχείο και άνοιξέ το σε κανονικό browser ή ανέβασέ το σε web hosting.
-    </div>
-  </noscript>
+  <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
 
-  <main class="shell">
-    <div class="topbar">
-      <div class="brand">
-        <div class="brand-mark">S</div>
-        <div>SELGAMIS® Knowledge Quiz</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-lockup" href="./" aria-label="Derma Quiz αρχική">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span>
+          <strong>Derma Quiz</strong>
+          <small>Scientific Learning Hub</small>
+        </span>
+      </a>
+
+      <div class="best-score" aria-label="Καλύτερο σκορ">
+        <span>Best</span>
+        <strong id="best-score">—</strong>
       </div>
-      <div class="best">Καλύτερο σκορ: <strong id="bestScore">—</strong></div>
     </div>
+  </header>
 
-    <section id="startScreen" class="card hero">
-      <div class="eyebrow">Internal Learning Tool</div>
-      <h1>Test. Learn.<br>Repeat.</h1>
-      <p class="lead">
-        Σύντομες, τυχαίες ερωτήσεις για product knowledge, κλινικές μελέτες,
-        αποτελεσματικότητα και ασφάλεια του SELGAMIS®.
+  <main id="main-content" class="page-shell">
+    <section id="loading-screen" class="panel loading-panel" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Φόρτωση βάσης ερωτήσεων…</p>
+    </section>
+
+    <section id="error-screen" class="panel error-panel hidden" role="alert">
+      <span class="status-icon" aria-hidden="true">!</span>
+      <h1>Δεν ήταν δυνατή η φόρτωση του quiz</h1>
+      <p id="error-message">
+        Έλεγξε ότι έχουν ανέβει όλα τα αρχεία και ότι η σελίδα ανοίγει από το
+        GitHub Pages link.
       </p>
+      <button id="reload-button" class="button button-primary" type="button">
+        Νέα προσπάθεια
+      </button>
+    </section>
 
-      <div class="config-grid">
-        <div class="field">
-          <label for="sectionSelect">Ενότητα</label>
-          <select id="sectionSelect">
-            <option value="all">Όλες οι ενότητες</option>
-          </select>
+    <section id="start-screen" class="panel hero-panel hidden">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Mobile learning · 3–5 minutes</p>
+          <h1>Μικρά quiz.<br><span>Μεγάλη ανάκληση.</span></h1>
+          <p class="hero-copy">
+            Αξιοποίησε τον χρόνο αναμονής με σύντομες ερωτήσεις για product
+            knowledge, κλινικές μελέτες, αποτελεσματικότητα και ασφάλεια.
+          </p>
         </div>
+
+        <aside class="hero-stat" aria-label="Στοιχεία βάσης">
+          <strong id="question-bank-count">0</strong>
+          <span>ενεργές ερωτήσεις</span>
+          <small id="brand-count">0 brands</small>
+        </aside>
+      </div>
+
+      <div id="review-warning" class="review-warning hidden" role="note">
+        <strong>Επιστημονικός έλεγχος σε εκκρεμότητα</strong>
+        <span>
+          Η τρέχουσα βάση έχει εισαχθεί από το παρεχόμενο quiz bank και πρέπει
+          να ελεγχθεί έναντι των ισχυόντων εγκεκριμένων υλικών πριν από επίσημη
+          εταιρική διάθεση.
+        </span>
+      </div>
+
+      <div class="quiz-settings" aria-label="Ρυθμίσεις quiz">
         <div class="field">
-          <label for="countSelect">Ερωτήσεις</label>
-          <select id="countSelect">
-            <option value="5">5</option>
-            <option value="10" selected>10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="all">Όλες</option>
+          <label for="brand-select">Brand</label>
+          <select id="brand-select"></select>
+        </div>
+
+        <div class="field">
+          <label for="section-select">Ενότητα</label>
+          <select id="section-select"></select>
+        </div>
+
+        <div class="field">
+          <label for="question-count-select">Αριθμός ερωτήσεων</label>
+          <select id="question-count-select">
+            <option value="5">5 ερωτήσεις</option>
+            <option value="10" selected>10 ερωτήσεις</option>
+            <option value="15">15 ερωτήσεις</option>
+            <option value="20">20 ερωτήσεις</option>
+            <option value="all">Όλες οι διαθέσιμες</option>
           </select>
         </div>
       </div>
 
-      <button type="button" id="startBtn" class="primary full">Έναρξη Quiz</button>
+      <button id="start-button" class="button button-primary button-large" type="button">
+        Έναρξη Quiz
+      </button>
 
-      <div class="note">
-        <strong>Σημείωση επιστημονικού ελέγχου:</strong>
-        Το περιεχόμενο έχει ενσωματωθεί όπως δόθηκε. Πριν από εταιρική δημοσίευση,
-        απαιτείται έλεγχος έναντι του ισχύοντος εγκεκριμένου SPC/SmPC και των
-        εγκεκριμένων εκπαιδευτικών υλικών.
+      <p class="privacy-note">
+        Το σκορ αποθηκεύεται μόνο στη συγκεκριμένη συσκευή. Δεν αποστέλλονται
+        ονόματα ή αποτελέσματα σε server.
+      </p>
+    </section>
+
+    <section id="quiz-screen" class="panel quiz-panel hidden">
+      <div class="quiz-meta">
+        <span id="question-section" class="chip">Ενότητα</span>
+        <span id="question-counter">1 / 10</span>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <p id="question-brand" class="question-brand">SELGAMIS®</p>
+      <h1 id="question-text" class="question-text"></h1>
+
+      <div id="answer-area" class="answer-area"></div>
+
+      <div
+        id="feedback"
+        class="feedback hidden"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+
+      <div class="quiz-actions">
+        <button id="next-button" class="button button-primary hidden" type="button">
+          Επόμενη ερώτηση
+        </button>
       </div>
     </section>
 
-    <section id="quizScreen" class="card quiz-card hidden">
-      <div class="quiz-head">
-        <span id="sectionChip" class="section-chip"></span>
-        <span id="counter" class="counter"></span>
-      </div>
-      <div class="progress"><div id="progressBar"></div></div>
-      <h2 id="questionText" class="question"></h2>
-      <div id="answerArea"></div>
-      <div id="feedback" class="feedback hidden"></div>
-      <div class="actions">
-        <button type="button" id="nextBtn" class="primary hidden">Επόμενη ερώτηση</button>
-      </div>
-    </section>
-
-    <section id="resultScreen" class="card result hidden">
-      <div id="scoreRing" class="score-ring">
-        <div class="score-inner">
-          <div id="scoreValue" class="score-value">0%</div>
-          <div class="score-label">τελικό σκορ</div>
+    <section id="result-screen" class="panel result-panel hidden">
+      <div id="score-ring" class="score-ring" aria-label="Τελικό σκορ">
+        <div class="score-ring-inner">
+          <strong id="score-percent">0%</strong>
+          <span>τελικό σκορ</span>
         </div>
       </div>
-      <h2 id="resultTitle">Ολοκλήρωσες το Quiz</h2>
-      <p id="resultSub" class="result-sub"></p>
 
-      <div class="stats">
-        <div class="stat"><strong id="correctStat">0</strong><span>Σωστές</span></div>
-        <div class="stat"><strong id="wrongStat">0</strong><span>Λάθος</span></div>
-        <div class="stat"><strong id="totalStat">0</strong><span>Σύνολο</span></div>
+      <p id="result-level" class="eyebrow">Quiz complete</p>
+      <h1 id="result-title">Ολοκλήρωσες το quiz</h1>
+      <p id="result-message" class="result-message"></p>
+
+      <div class="result-stats">
+        <div>
+          <strong id="correct-count">0</strong>
+          <span>Σωστές</span>
+        </div>
+        <div>
+          <strong id="wrong-count">0</strong>
+          <span>Λάθος</span>
+        </div>
+        <div>
+          <strong id="total-count">0</strong>
+          <span>Σύνολο</span>
+        </div>
       </div>
 
       <div class="result-actions">
-        <button type="button" id="restartBtn" class="primary">Νέο τυχαίο Quiz</button>
-        <button type="button" id="retryWrongBtn" class="secondary">Επανάληψη λαθών</button>
+        <button id="new-quiz-button" class="button button-primary" type="button">
+          Νέο τυχαίο Quiz
+        </button>
+        <button id="retry-wrong-button" class="button button-secondary" type="button">
+          Επανάληψη λαθών
+        </button>
       </div>
 
-      <div id="reviewBox" class="review hidden">
-        <h3>Σωστές απαντήσεις στα λάθη</h3>
-        <div id="reviewList"></div>
-      </div>
+      <details id="mistake-review" class="mistake-review hidden">
+        <summary>Ανασκόπηση λανθασμένων απαντήσεων</summary>
+        <div id="mistake-list"></div>
+      </details>
     </section>
-
-
-    <div id="runtimeError" class="hidden" style="
-      margin-top:18px;padding:14px 16px;border-radius:14px;background:#fff0ee;
-      color:#b42318;border:1px solid #ef9c95;line-height:1.5;font-size:.9rem">
-      <strong>Το quiz δεν μπόρεσε να ξεκινήσει.</strong><br>
-      Άνοιξε τη σελίδα σε Chrome, Safari ή Edge μέσω κανονικού web link και όχι
-      μέσα από προεπισκόπηση αρχείου.
-    </div>
-
-    <footer>
-      SELGAMIS® Knowledge Quiz · Εσωτερικό εκπαιδευτικό εργαλείο<br>
-      Η βάση περιλαμβάνει 40 ερωτήσεις και μπορεί να εμπλουτίζεται σταδιακά.
-    </footer>
   </main>
 
-  <script>
-    const QUESTION_BANK = [{"id": 1, "section": "Product Knowledge", "type": "mcq", "question": "Ποια είναι η δραστική ουσία του SELGAMIS®;", "options": ["Adapalene", "Tretinoin", "Trifarotene", "Isotretinoin"], "answer": "Trifarotene", "explanation": "Η δραστική ουσία του SELGAMIS® είναι η τριφαροτένη (trifarotene)."}, {"id": 2, "section": "Product Knowledge", "type": "mcq", "question": "Το SELGAMIS® είναι:", "options": ["Αντιβιοτικό", "Τοπικό ρετινοειδές", "Βενζοϋλοϋπεροξείδιο", "Κορτικοστεροειδές"], "answer": "Τοπικό ρετινοειδές", "explanation": "Το SELGAMIS® ανήκει στα τοπικά ρετινοειδή."}, {"id": 3, "section": "Product Knowledge", "type": "mcq", "question": "Σε ποιον υποδοχέα παρουσιάζει εκλεκτικότητα η τριφαροτένη;", "options": ["RAR-α", "RAR-β", "RXR", "RAR-γ"], "answer": "RAR-γ", "explanation": "Η τριφαροτένη παρουσιάζει εκλεκτικότητα για τον υποδοχέα RAR-γ."}, {"id": 4, "section": "Product Knowledge", "type": "mcq", "question": "Από ποια ηλικία ενδείκνυται το SELGAMIS®;", "options": ["9 ετών", "10 ετών", "12 ετών", "18 ετών"], "answer": "12 ετών", "explanation": "Σύμφωνα με το υλικό της βάσης, το SELGAMIS® ενδείκνυται από την ηλικία των 12 ετών."}, {"id": 5, "section": "Product Knowledge", "type": "mcq", "question": "Πόσες φορές ημερησίως εφαρμόζεται;", "options": ["Δύο φορές", "Τρεις φορές", "Μία φορά", "Ανάλογα με τη βαρύτητα"], "answer": "Μία φορά", "explanation": "Η εφαρμογή γίνεται μία φορά ημερησίως."}, {"id": 6, "section": "Product Knowledge", "type": "mcq", "question": "Ποια ανατομική περιοχή αποτελεί κεντρικό στοιχείο διαφοροποίησης του SELGAMIS®;", "options": ["Χέρια", "Τριχωτό κεφαλής", "Κορμός", "Λαιμός"], "answer": "Κορμός", "explanation": "Η αντιμετώπιση της ακμής του κορμού αποτελεί βασικό στοιχείο διαφοροποίησης."}, {"id": 7, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Πόσοι συνολικά ασθενείς συμμετείχαν στις PERFECT 1 και PERFECT 2;", "options": ["950", "1.500", "2.420", "3.500"], "answer": "2.420", "explanation": "Στις δύο μελέτες συμμετείχαν συνολικά 2.420 ασθενείς."}, {"id": 8, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Οι PERFECT 1 & 2 ήταν:", "options": ["Open-label", "Παρατηρητικές", "Double-blind vehicle-controlled", "Real World"], "answer": "Double-blind vehicle-controlled", "explanation": "Οι PERFECT 1 & 2 ήταν διπλά τυφλές, ελεγχόμενες με vehicle μελέτες."}, {"id": 9, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Πόση ήταν η διάρκεια των PERFECT studies;", "options": ["4 εβδομάδες", "8 εβδομάδες", "12 εβδομάδες", "24 εβδομάδες"], "answer": "12 εβδομάδες", "explanation": "Η διάρκεια των PERFECT studies ήταν 12 εβδομάδες."}, {"id": 10, "section": "PERFECT 1 & PERFECT 2", "type": "text", "question": "Τι σημαίνει IGA Success;", "answer": "Clear/Almost Clear + ≥2 βαθμούς βελτίωσης", "accepted": ["clear almost clear 2 βαθμους βελτιωσης", "clear almost clear και 2 βαθμους βελτιωσης", "clear/almost clear + ≥2 βαθμους βελτιωσης", "clear or almost clear 2 grades improvement", "clear almost clear 2 grades improvement"], "explanation": "IGA Success: Clear ή Almost Clear και βελτίωση κατά τουλάχιστον 2 βαθμούς."}, {"id": 11, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Ποιο ήταν το υψηλότερο IGA Success στο πρόσωπο;", "options": ["29,4%", "35,7%", "42,3%", "65,1%"], "answer": "42,3%", "explanation": "Το υψηλότερο IGA Success στο πρόσωπο ήταν 42,3%."}, {"id": 12, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Ποιο ήταν το υψηλότερο PGA Success στον κορμό;", "options": ["25,0%", "35,7%", "42,6%", "66,9%"], "answer": "42,6%", "explanation": "Το υψηλότερο PGA Success στον κορμό ήταν 42,6%."}, {"id": 13, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Έως πόσο μειώθηκαν οι φλεγμονώδεις βλάβες στο πρόσωπο;", "options": ["35%", "48%", "66%", "80%"], "answer": "66%", "explanation": "Οι φλεγμονώδεις βλάβες στο πρόσωπο μειώθηκαν έως 66%."}, {"id": 14, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Έως πόσο μειώθηκαν οι μη φλεγμονώδεις βλάβες στο πρόσωπο;", "options": ["58%", "40%", "25%", "75%"], "answer": "58%", "explanation": "Οι μη φλεγμονώδεις βλάβες στο πρόσωπο μειώθηκαν έως 58%."}, {"id": 15, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Η στατιστικά σημαντική βελτίωση στο πρόσωπο εμφανίστηκε ήδη από:", "options": ["Week 1", "Week 4", "Week 8", "Week 12"], "answer": "Week 1", "explanation": "Στατιστικά σημαντική βελτίωση στο πρόσωπο παρατηρήθηκε ήδη από την Week 1."}, {"id": 16, "section": "PERFECT 1 & PERFECT 2", "type": "mcq", "question": "Η στατιστικά σημαντική βελτίωση στον κορμό εμφανίστηκε από:", "options": ["Week 1", "Week 2", "Week 6", "Week 12"], "answer": "Week 2", "explanation": "Στατιστικά σημαντική βελτίωση στον κορμό παρατηρήθηκε από την Week 2."}, {"id": 17, "section": "Long-term Study", "type": "mcq", "question": "Ποια ήταν η διάρκεια της long-term μελέτης;", "options": ["24 εβδομάδες", "36 εβδομάδες", "52 εβδομάδες", "104 εβδομάδες"], "answer": "52 εβδομάδες", "explanation": "Η long-term μελέτη είχε διάρκεια 52 εβδομάδες."}, {"id": 18, "section": "Long-term Study", "type": "mcq", "question": "Σε ποιο ποσοστό έφτασε το IGA Success στο πρόσωπο στην Week 52;", "options": ["42%", "55%", "65,1%", "78%"], "answer": "65,1%", "explanation": "Στην Week 52, το IGA Success στο πρόσωπο έφτασε το 65,1%."}, {"id": 19, "section": "Long-term Study", "type": "mcq", "question": "Σε ποιο ποσοστό έφτασε το PGA Success στον κορμό στην Week 52;", "options": ["66,9%", "42,6%", "38,6%", "51%"], "answer": "66,9%", "explanation": "Στην Week 52, το PGA Success στον κορμό έφτασε το 66,9%."}, {"id": 20, "section": "Long-term Study", "type": "tf", "question": "Η αποτελεσματικότητα του SELGAMIS® σταματά να αυξάνεται μετά την Week 12.", "options": ["Σωστό", "Λάθος"], "answer": "Λάθος", "explanation": "Η αποτελεσματικότητα συνέχισε να αυξάνεται στη μακροχρόνια παρακολούθηση έως την Week 52."}, {"id": 21, "section": "START Study", "type": "mcq", "question": "Τι αξιολόγησε η START Study;", "options": ["Rosacea", "Ψωρίαση", "Ατροφικές ουλές ακμής", "Ατοπική δερματίτιδα"], "answer": "Ατροφικές ουλές ακμής", "explanation": "Η START Study αξιολόγησε τις ατροφικές ουλές ακμής."}, {"id": 22, "section": "START Study", "type": "mcq", "question": "Ποια ήταν η διάρκεια της START;", "options": ["12 εβδομάδες", "16 εβδομάδες", "24 εβδομάδες", "52 εβδομάδες"], "answer": "24 εβδομάδες", "explanation": "Η START είχε διάρκεια 24 εβδομάδες."}, {"id": 23, "section": "START Study", "type": "mcq", "question": "Ποια ήταν η μείωση των συνολικών βλαβών ακμής με τριφαροτένη;", "options": ["45%", "55%", "70%", "85%"], "answer": "70%", "explanation": "Η μείωση των συνολικών βλαβών ακμής με τριφαροτένη ήταν 70%."}, {"id": 24, "section": "START Study", "type": "mcq", "question": "Ποια ήταν η αντίστοιχη μείωση με vehicle;", "options": ["44,9%", "60%", "32%", "70%"], "answer": "44,9%", "explanation": "Η αντίστοιχη μείωση με vehicle ήταν 44,9%."}, {"id": 25, "section": "START Study", "type": "text", "question": "Πόσες ουλές μειώθηκαν με τριφαροτένη στη Week 24;", "answer": "5,9 ουλές", "accepted": ["5,9", "5.9", "5,9 ουλες", "5.9 ουλες"], "explanation": "Στη Week 24 καταγράφηκε μείωση κατά 5,9 ουλές με τριφαροτένη."}, {"id": 26, "section": "START Study", "type": "text", "question": "Πόσες ουλές μειώθηκαν με vehicle;", "answer": "2,7 ουλές", "accepted": ["2,7", "2.7", "2,7 ουλες", "2.7 ουλες"], "explanation": "Με vehicle καταγράφηκε μείωση κατά 2,7 ουλές."}, {"id": 27, "section": "START Study", "type": "mcq", "question": "Ποια ήταν η διαφορά μεταξύ των δύο ομάδων;", "options": ["1,2", "2,1", "3,2", "5,9"], "answer": "3,2", "explanation": "Η διαφορά μεταξύ των δύο ομάδων ήταν 3,2 ουλές."}, {"id": 28, "section": "START Study", "type": "tf", "question": "Η START έδειξε στατιστικά σημαντική διαφορά μόνο στο τέλος της μελέτης.", "options": ["Σωστό", "Λάθος"], "answer": "Λάθος", "explanation": "Η σημαντική διαφορά στις ουλές εμφανίστηκε νωρίτερα και όχι μόνο στο τέλος της μελέτης."}, {"id": 29, "section": "START Study", "type": "mcq", "question": "Από ποια εβδομάδα εμφανίστηκε σημαντική διαφορά στις ουλές;", "options": ["Week 1", "Week 2", "Week 12", "Week 24"], "answer": "Week 2", "explanation": "Σημαντική διαφορά στις ουλές εμφανίστηκε από την Week 2."}, {"id": 30, "section": "Safety", "type": "mcq", "question": "Ποια είναι η συχνότερη κατηγορία ανεπιθύμητων ενεργειών;", "options": ["Καρδιολογικές", "Τοπικοί δερματικοί ερεθισμοί", "Ηπατικές", "Νευρολογικές"], "answer": "Τοπικοί δερματικοί ερεθισμοί", "explanation": "Οι συχνότερες ανεπιθύμητες ενέργειες αφορούν τοπικούς δερματικούς ερεθισμούς."}, {"id": 31, "section": "Safety", "type": "text", "question": "Αναφέρετε μία συχνή τοπική ανεπιθύμητη ενέργεια.", "answer": "Ξηρότητα / Ερύθημα / Απολέπιση / Κάψιμο", "accepted": ["ξηροτητα", "ερυθημα", "απολεπιση", "καψιμο", "dryness", "erythema", "scaling", "burning"], "explanation": "Αποδεκτές απαντήσεις: ξηρότητα, ερύθημα, απολέπιση ή αίσθημα καύσου."}, {"id": 32, "section": "Safety", "type": "tf", "question": "Η ανεκτικότητα ήταν καλύτερη στον κορμό σε σχέση με το πρόσωπο.", "options": ["Σωστό", "Λάθος"], "answer": "Σωστό", "explanation": "Σύμφωνα με τη βάση, η ανεκτικότητα ήταν καλύτερη στον κορμό από ό,τι στο πρόσωπο."}, {"id": 33, "section": "Safety", "type": "mcq", "question": "Πότε εμφανίζεται συνήθως η μέγιστη ερεθιστική αντίδραση;", "options": ["Μετά τον 3ο μήνα", "Πρώτες εβδομάδες θεραπείας", "Μετά τον 1ο χρόνο", "Ποτέ"], "answer": "Πρώτες εβδομάδες θεραπείας", "explanation": "Η μέγιστη ερεθιστική αντίδραση εμφανίζεται συνήθως στις πρώτες εβδομάδες της θεραπείας."}, {"id": 34, "section": "Safety", "type": "mcq", "question": "Τι συνιστάται από την έναρξη της θεραπείας;", "options": ["Αντιβιοτικό", "Απολέπιση", "Ενυδατική κρέμα", "Κανένα από τα παραπάνω"], "answer": "Ενυδατική κρέμα", "explanation": "Συνιστάται η χρήση ενυδατικής κρέμας από την έναρξη της θεραπείας."}, {"id": 35, "section": "Safety", "type": "mcq", "question": "Τι SPF συνιστά το SPC;", "options": ["15", "20", "25", "30+"], "answer": "30+", "explanation": "Σύμφωνα με τη βάση, συνιστάται SPF 30+."}, {"id": 36, "section": "Safety", "type": "tf", "question": "Το SELGAMIS® αντενδείκνυται στην κύηση.", "options": ["Σωστό", "Λάθος"], "answer": "Σωστό", "explanation": "Σύμφωνα με τη βάση, το SELGAMIS® αντενδείκνυται στην κύηση."}, {"id": 37, "section": "Fast Recall", "type": "mcq", "question": "RAR-γ ή RAR-β;", "options": ["RAR-γ", "RAR-β"], "answer": "RAR-γ", "explanation": "Η τριφαροτένη παρουσιάζει εκλεκτικότητα για τον RAR-γ."}, {"id": 38, "section": "Fast Recall", "type": "mcq", "question": "Face + Trunk ή μόνο Face;", "options": ["Face + Trunk", "Μόνο Face"], "answer": "Face + Trunk", "explanation": "Το SELGAMIS® συνδέεται με αντιμετώπιση της ακμής τόσο στο πρόσωπο όσο και στον κορμό."}, {"id": 39, "section": "Fast Recall", "type": "mcq", "question": "Week 12 ή Week 52 long-term study;", "options": ["Week 12", "Week 52"], "answer": "Week 52", "explanation": "Η long-term study είχε διάρκεια 52 εβδομάδες."}, {"id": 40, "section": "Fast Recall", "type": "mcq", "question": "Το 70% reduction αφορά:", "options": ["Ουλές", "Συνολικές βλάβες ακμής"], "answer": "Συνολικές βλάβες ακμής", "explanation": "Το 70% αφορά τη μείωση των συνολικών βλαβών ακμής."}];
+  <footer class="site-footer">
+    <p>
+      Εσωτερικό εκπαιδευτικό εργαλείο · Η επιστημονική ακρίβεια πρέπει να
+      επιβεβαιώνεται έναντι του ισχύοντος SPC/SmPC και των εγκεκριμένων υλικών.
+    </p>
+  </footer>
 
-    const state = {
-      pool: [],
-      quiz: [],
-      index: 0,
-      score: 0,
-      answered: false,
-      mistakes: [],
-      currentMode: "normal"
-    };
-
-    const $ = (id) => document.getElementById(id);
-    const startScreen = $("startScreen");
-    const quizScreen = $("quizScreen");
-    const resultScreen = $("resultScreen");
-
-    function shuffle(array) {
-      const a = [...array];
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    }
-
-    function normalizeText(value) {
-      return String(value ?? "")
-        .toLocaleLowerCase("el-GR")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[≥]/g, "")
-        .replace(/[+]/g, " ")
-        .replace(/[\/,_().:;!?-]/g, " ")
-        .replace(/\s+/g, " ")
-        .trim();
-    }
-
-    function populateSections() {
-      const sections = [...new Set(QUESTION_BANK.map(q => q.section))];
-      sections.forEach(section => {
-        const option = document.createElement("option");
-        option.value = section;
-        option.textContent = section;
-        $("sectionSelect").appendChild(option);
-      });
-    }
-
-    function safeGetBestScore() {
-      try {
-        return localStorage.getItem("selgamisBestScore");
-      } catch (error) {
-        return null;
-      }
-    }
-
-    function safeSetBestScore(value) {
-      try {
-        localStorage.setItem("selgamisBestScore", String(value));
-      } catch (error) {
-        // Η αποθήκευση καλύτερου σκορ είναι προαιρετική.
-      }
-    }
-
-    function updateBestScore() {
-      const best = safeGetBestScore();
-      $("bestScore").textContent = best ? `${best}%` : "—";
-    }
-
-    function selectQuiz() {
-      const selectedSection = $("sectionSelect").value;
-      const selectedCount = $("countSelect").value;
-      const pool = selectedSection === "all"
-        ? [...QUESTION_BANK]
-        : QUESTION_BANK.filter(q => q.section === selectedSection);
-
-      const count = selectedCount === "all"
-        ? pool.length
-        : Math.min(parseInt(selectedCount, 10), pool.length);
-
-      state.pool = pool;
-      state.quiz = shuffle(pool).slice(0, count);
-      state.index = 0;
-      state.score = 0;
-      state.answered = false;
-      state.mistakes = [];
-      state.currentMode = "normal";
-    }
-
-    function startQuiz() {
-      selectQuiz();
-      startScreen.classList.add("hidden");
-      resultScreen.classList.add("hidden");
-      quizScreen.classList.remove("hidden");
-      renderQuestion();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function renderQuestion() {
-      const q = state.quiz[state.index];
-      state.answered = false;
-
-      $("sectionChip").textContent = q.section;
-      $("counter").textContent = `Ερώτηση ${state.index + 1} / ${state.quiz.length}`;
-      $("progressBar").style.width = `${((state.index) / state.quiz.length) * 100}%`;
-      $("questionText").textContent = q.question;
-      $("feedback").className = "feedback hidden";
-      $("feedback").innerHTML = "";
-      $("nextBtn").classList.add("hidden");
-
-      const area = $("answerArea");
-      area.innerHTML = "";
-
-      if (q.type === "text") {
-        const row = document.createElement("div");
-        row.className = "text-row";
-
-        const input = document.createElement("input");
-        input.className = "text-answer";
-        input.type = "text";
-        input.placeholder = "Γράψε την απάντησή σου";
-        input.autocomplete = "off";
-        input.id = "freeTextInput";
-
-        const submit = document.createElement("button");
-        submit.className = "primary";
-        submit.textContent = "Έλεγχος";
-        submit.addEventListener("click", () => submitTextAnswer(input.value));
-
-        input.addEventListener("keydown", (event) => {
-          if (event.key === "Enter") submitTextAnswer(input.value);
-        });
-
-        row.appendChild(input);
-        row.appendChild(submit);
-        area.appendChild(row);
-        setTimeout(() => input.focus(), 50);
-      } else {
-        const optionsWrap = document.createElement("div");
-        optionsWrap.className = "options";
-
-        const randomized = shuffle(q.options);
-        randomized.forEach((optionText, index) => {
-          const btn = document.createElement("button");
-          btn.className = "option";
-          btn.dataset.value = optionText;
-          btn.innerHTML = `<span class="letter">${String.fromCharCode(65 + index)}</span><span>${optionText}</span>`;
-          btn.addEventListener("click", () => submitChoice(optionText, btn));
-          optionsWrap.appendChild(btn);
-        });
-        area.appendChild(optionsWrap);
-      }
-    }
-
-    function submitChoice(selected, selectedButton) {
-      if (state.answered) return;
-      const q = state.quiz[state.index];
-      const correct = selected === q.answer;
-      state.answered = true;
-
-      document.querySelectorAll(".option").forEach(btn => {
-        btn.classList.add("locked");
-        btn.disabled = true;
-        if (btn.dataset.value === q.answer) btn.classList.add("correct");
-      });
-
-      if (!correct) {
-        selectedButton.classList.remove("correct");
-        selectedButton.classList.add("wrong");
-      }
-
-      finalizeAnswer(correct, selected);
-    }
-
-    function submitTextAnswer(value) {
-      if (state.answered) return;
-      const q = state.quiz[state.index];
-      if (!value.trim()) return;
-
-      const normalized = normalizeText(value);
-      const accepted = (q.accepted || [q.answer]).map(normalizeText);
-      const correct = accepted.some(answer => {
-        if (!answer) return false;
-        return normalized === answer || normalized.includes(answer) || answer.includes(normalized);
-      });
-
-      state.answered = true;
-      const input = $("freeTextInput");
-      input.disabled = true;
-      input.style.borderColor = correct ? "#70bf92" : "#ef9c95";
-      finalizeAnswer(correct, value);
-    }
-
-    function finalizeAnswer(correct, selected) {
-      const q = state.quiz[state.index];
-
-      if (correct) {
-        state.score += 1;
-      } else {
-        state.mistakes.push({
-          ...q,
-          selected
-        });
-      }
-
-      const feedback = $("feedback");
-      feedback.className = `feedback ${correct ? "correct" : "wrong"}`;
-      feedback.innerHTML = `
-        <div class="feedback-title">${correct ? "✓ Σωστή απάντηση" : "✕ Λανθασμένη απάντηση"}</div>
-        ${correct ? "" : `<div><strong>Σωστή απάντηση:</strong> ${q.answer}</div>`}
-        <div>${q.explanation}</div>
-      `;
-
-      $("nextBtn").textContent = state.index === state.quiz.length - 1
-        ? "Δες το σκορ"
-        : "Επόμενη ερώτηση";
-      $("nextBtn").classList.remove("hidden");
-      $("progressBar").style.width = `${((state.index + 1) / state.quiz.length) * 100}%`;
-    }
-
-    function nextQuestion() {
-      if (!state.answered) return;
-      if (state.index < state.quiz.length - 1) {
-        state.index += 1;
-        renderQuestion();
-      } else {
-        showResults();
-      }
-    }
-
-    function getResultMessage(percent) {
-      if (percent >= 90) return ["Product Expert", "Εξαιρετική γνώση και πολύ ισχυρή ανάκληση."];
-      if (percent >= 75) return ["Very Good", "Πολύ καλή επίδοση. Μικρή επανάληψη στα λάθη και είσαι έτοιμος/η."];
-      if (percent >= 60) return ["Needs Refresh", "Καλή βάση, αλλά χρειάζεται στοχευμένη επανάληψη."];
-      return ["Recommended Review", "Χρειάζεται επανάληψη του υλικού πριν από το επόμενο quiz."];
-    }
-
-    function showResults() {
-      quizScreen.classList.add("hidden");
-      resultScreen.classList.remove("hidden");
-
-      const total = state.quiz.length;
-      const percent = total ? Math.round((state.score / total) * 100) : 0;
-      const [title, subtitle] = getResultMessage(percent);
-
-      $("scoreValue").textContent = `${percent}%`;
-      $("scoreRing").style.background =
-        `conic-gradient(var(--blue) ${percent * 3.6}deg, #e7ebf4 0deg)`;
-      $("resultTitle").textContent = title;
-      $("resultSub").textContent = subtitle;
-      $("correctStat").textContent = state.score;
-      $("wrongStat").textContent = total - state.score;
-      $("totalStat").textContent = total;
-
-      const previousBest = parseInt(safeGetBestScore() || "0", 10);
-      if (percent > previousBest) {
-        safeSetBestScore(percent);
-      }
-      updateBestScore();
-
-      $("retryWrongBtn").disabled = state.mistakes.length === 0;
-      renderReview();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function renderReview() {
-      const box = $("reviewBox");
-      const list = $("reviewList");
-      list.innerHTML = "";
-
-      if (!state.mistakes.length) {
-        box.classList.add("hidden");
-        return;
-      }
-
-      state.mistakes.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "review-item";
-        div.innerHTML = `
-          <div class="review-q">${item.question}</div>
-          <div class="review-a">Σωστή απάντηση: <strong>${item.answer}</strong></div>
-        `;
-        list.appendChild(div);
-      });
-      box.classList.remove("hidden");
-    }
-
-    function restart() {
-      resultScreen.classList.add("hidden");
-      startScreen.classList.remove("hidden");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function retryMistakes() {
-      if (!state.mistakes.length) return;
-      state.quiz = shuffle(state.mistakes.map(({
-        selected, ...question
-      }) => question));
-      state.index = 0;
-      state.score = 0;
-      state.answered = false;
-      state.mistakes = [];
-      state.currentMode = "mistakes";
-
-      resultScreen.classList.add("hidden");
-      quizScreen.classList.remove("hidden");
-      renderQuestion();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    window.addEventListener("error", function () {
-      const box = document.getElementById("runtimeError");
-      if (box) box.classList.remove("hidden");
-    });
-
-    window.SelgamisQuiz = {
-      start: startQuiz,
-      next: nextQuestion,
-      restart,
-      retryMistakes
-    };
-
-    $("startBtn").addEventListener("click", startQuiz);
-    $("nextBtn").addEventListener("click", nextQuestion);
-    $("restartBtn").addEventListener("click", restart);
-    $("retryWrongBtn").addEventListener("click", retryMistakes);
-
-    try {
-      populateSections();
-      updateBestScore();
-    } catch (error) {
-      const box = $("runtimeError");
-      if (box) box.classList.remove("hidden");
-    }
-  </script>
+  <noscript>
+    <div class="noscript-message">
+      Το quiz χρειάζεται JavaScript. Άνοιξέ το από Chrome, Safari ή Edge μέσω
+      του GitHub Pages link.
+    </div>
+  </noscript>
 </body>
 </html>

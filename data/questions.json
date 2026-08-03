@@ -1,0 +1,755 @@
+[
+  {
+    "id": "SELGAMIS-001",
+    "brand": "SELGAMIS",
+    "section": "Product Knowledge",
+    "type": "multiple-choice",
+    "question": "Ποια είναι η δραστική ουσία του SELGAMIS®;",
+    "correctAnswer": "Trifarotene",
+    "explanation": "Η δραστική ουσία του SELGAMIS® είναι η τριφαροτένη (trifarotene).",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Adapalene",
+      "Tretinoin",
+      "Trifarotene",
+      "Isotretinoin"
+    ]
+  },
+  {
+    "id": "SELGAMIS-002",
+    "brand": "SELGAMIS",
+    "section": "Product Knowledge",
+    "type": "multiple-choice",
+    "question": "Το SELGAMIS® είναι:",
+    "correctAnswer": "Τοπικό ρετινοειδές",
+    "explanation": "Το SELGAMIS® ανήκει στα τοπικά ρετινοειδή.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Αντιβιοτικό",
+      "Τοπικό ρετινοειδές",
+      "Βενζοϋλοϋπεροξείδιο",
+      "Κορτικοστεροειδές"
+    ]
+  },
+  {
+    "id": "SELGAMIS-003",
+    "brand": "SELGAMIS",
+    "section": "Product Knowledge",
+    "type": "multiple-choice",
+    "question": "Σε ποιον υποδοχέα παρουσιάζει εκλεκτικότητα η τριφαροτένη;",
+    "correctAnswer": "RAR-γ",
+    "explanation": "Η τριφαροτένη παρουσιάζει εκλεκτικότητα για τον υποδοχέα RAR-γ.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "RAR-α",
+      "RAR-β",
+      "RXR",
+      "RAR-γ"
+    ]
+  },
+  {
+    "id": "SELGAMIS-004",
+    "brand": "SELGAMIS",
+    "section": "Product Knowledge",
+    "type": "multiple-choice",
+    "question": "Από ποια ηλικία ενδείκνυται το SELGAMIS®;",
+    "correctAnswer": "12 ετών",
+    "explanation": "Σύμφωνα με το υλικό της βάσης, το SELGAMIS® ενδείκνυται από την ηλικία των 12 ετών.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "9 ετών",
+      "10 ετών",
+      "12 ετών",
+      "18 ετών"
+    ]
+  },
+  {
+    "id": "SELGAMIS-005",
+    "brand": "SELGAMIS",
+    "section": "Product Knowledge",
+    "type": "multiple-choice",
+    "question": "Πόσες φορές ημερησίως εφαρμόζεται;",
+    "correctAnswer": "Μία φορά",
+    "explanation": "Η εφαρμογή γίνεται μία φορά ημερησίως.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Δύο φορές",
+      "Τρεις φορές",
+      "Μία φορά",
+      "Ανάλογα με τη βαρύτητα"
+    ]
+  },
+  {
+    "id": "SELGAMIS-006",
+    "brand": "SELGAMIS",
+    "section": "Product Knowledge",
+    "type": "multiple-choice",
+    "question": "Ποια ανατομική περιοχή αποτελεί κεντρικό στοιχείο διαφοροποίησης του SELGAMIS®;",
+    "correctAnswer": "Κορμός",
+    "explanation": "Η αντιμετώπιση της ακμής του κορμού αποτελεί βασικό στοιχείο διαφοροποίησης.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Χέρια",
+      "Τριχωτό κεφαλής",
+      "Κορμός",
+      "Λαιμός"
+    ]
+  },
+  {
+    "id": "SELGAMIS-007",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Πόσοι συνολικά ασθενείς συμμετείχαν στις PERFECT 1 και PERFECT 2;",
+    "correctAnswer": "2.420",
+    "explanation": "Στις δύο μελέτες συμμετείχαν συνολικά 2.420 ασθενείς.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "950",
+      "1.500",
+      "2.420",
+      "3.500"
+    ]
+  },
+  {
+    "id": "SELGAMIS-008",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Οι PERFECT 1 & 2 ήταν:",
+    "correctAnswer": "Double-blind vehicle-controlled",
+    "explanation": "Οι PERFECT 1 & 2 ήταν διπλά τυφλές, ελεγχόμενες με vehicle μελέτες.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Open-label",
+      "Παρατηρητικές",
+      "Double-blind vehicle-controlled",
+      "Real World"
+    ]
+  },
+  {
+    "id": "SELGAMIS-009",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Πόση ήταν η διάρκεια των PERFECT studies;",
+    "correctAnswer": "12 εβδομάδες",
+    "explanation": "Η διάρκεια των PERFECT studies ήταν 12 εβδομάδες.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "4 εβδομάδες",
+      "8 εβδομάδες",
+      "12 εβδομάδες",
+      "24 εβδομάδες"
+    ]
+  },
+  {
+    "id": "SELGAMIS-010",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "free-text",
+    "question": "Τι σημαίνει IGA Success;",
+    "correctAnswer": "Clear/Almost Clear + ≥2 βαθμούς βελτίωσης",
+    "explanation": "IGA Success: Clear ή Almost Clear και βελτίωση κατά τουλάχιστον 2 βαθμούς.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "acceptedAnswers": [
+      "Clear/Almost Clear + ≥2 βαθμούς βελτίωσης",
+      "clear almost clear 2 βαθμους βελτιωσης",
+      "clear almost clear και 2 βαθμους βελτιωσης",
+      "clear/almost clear + ≥2 βαθμους βελτιωσης",
+      "clear or almost clear 2 grades improvement",
+      "clear almost clear 2 grades improvement"
+    ]
+  },
+  {
+    "id": "SELGAMIS-011",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Ποιο ήταν το υψηλότερο IGA Success στο πρόσωπο;",
+    "correctAnswer": "42,3%",
+    "explanation": "Το υψηλότερο IGA Success στο πρόσωπο ήταν 42,3%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "29,4%",
+      "35,7%",
+      "42,3%",
+      "65,1%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-012",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Ποιο ήταν το υψηλότερο PGA Success στον κορμό;",
+    "correctAnswer": "42,6%",
+    "explanation": "Το υψηλότερο PGA Success στον κορμό ήταν 42,6%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "25,0%",
+      "35,7%",
+      "42,6%",
+      "66,9%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-013",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Έως πόσο μειώθηκαν οι φλεγμονώδεις βλάβες στο πρόσωπο;",
+    "correctAnswer": "66%",
+    "explanation": "Οι φλεγμονώδεις βλάβες στο πρόσωπο μειώθηκαν έως 66%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "35%",
+      "48%",
+      "66%",
+      "80%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-014",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Έως πόσο μειώθηκαν οι μη φλεγμονώδεις βλάβες στο πρόσωπο;",
+    "correctAnswer": "58%",
+    "explanation": "Οι μη φλεγμονώδεις βλάβες στο πρόσωπο μειώθηκαν έως 58%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "58%",
+      "40%",
+      "25%",
+      "75%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-015",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Η στατιστικά σημαντική βελτίωση στο πρόσωπο εμφανίστηκε ήδη από:",
+    "correctAnswer": "Week 1",
+    "explanation": "Στατιστικά σημαντική βελτίωση στο πρόσωπο παρατηρήθηκε ήδη από την Week 1.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Week 1",
+      "Week 4",
+      "Week 8",
+      "Week 12"
+    ]
+  },
+  {
+    "id": "SELGAMIS-016",
+    "brand": "SELGAMIS",
+    "section": "PERFECT 1 & PERFECT 2",
+    "type": "multiple-choice",
+    "question": "Η στατιστικά σημαντική βελτίωση στον κορμό εμφανίστηκε από:",
+    "correctAnswer": "Week 2",
+    "explanation": "Στατιστικά σημαντική βελτίωση στον κορμό παρατηρήθηκε από την Week 2.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Week 1",
+      "Week 2",
+      "Week 6",
+      "Week 12"
+    ]
+  },
+  {
+    "id": "SELGAMIS-017",
+    "brand": "SELGAMIS",
+    "section": "Long-term Study",
+    "type": "multiple-choice",
+    "question": "Ποια ήταν η διάρκεια της long-term μελέτης;",
+    "correctAnswer": "52 εβδομάδες",
+    "explanation": "Η long-term μελέτη είχε διάρκεια 52 εβδομάδες.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "24 εβδομάδες",
+      "36 εβδομάδες",
+      "52 εβδομάδες",
+      "104 εβδομάδες"
+    ]
+  },
+  {
+    "id": "SELGAMIS-018",
+    "brand": "SELGAMIS",
+    "section": "Long-term Study",
+    "type": "multiple-choice",
+    "question": "Σε ποιο ποσοστό έφτασε το IGA Success στο πρόσωπο στην Week 52;",
+    "correctAnswer": "65,1%",
+    "explanation": "Στην Week 52, το IGA Success στο πρόσωπο έφτασε το 65,1%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "42%",
+      "55%",
+      "65,1%",
+      "78%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-019",
+    "brand": "SELGAMIS",
+    "section": "Long-term Study",
+    "type": "multiple-choice",
+    "question": "Σε ποιο ποσοστό έφτασε το PGA Success στον κορμό στην Week 52;",
+    "correctAnswer": "66,9%",
+    "explanation": "Στην Week 52, το PGA Success στον κορμό έφτασε το 66,9%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "66,9%",
+      "42,6%",
+      "38,6%",
+      "51%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-020",
+    "brand": "SELGAMIS",
+    "section": "Long-term Study",
+    "type": "true-false",
+    "question": "Η αποτελεσματικότητα του SELGAMIS® σταματά να αυξάνεται μετά την Week 12.",
+    "correctAnswer": "Λάθος",
+    "explanation": "Η αποτελεσματικότητα συνέχισε να αυξάνεται στη μακροχρόνια παρακολούθηση έως την Week 52.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Σωστό",
+      "Λάθος"
+    ]
+  },
+  {
+    "id": "SELGAMIS-021",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "multiple-choice",
+    "question": "Τι αξιολόγησε η START Study;",
+    "correctAnswer": "Ατροφικές ουλές ακμής",
+    "explanation": "Η START Study αξιολόγησε τις ατροφικές ουλές ακμής.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Rosacea",
+      "Ψωρίαση",
+      "Ατροφικές ουλές ακμής",
+      "Ατοπική δερματίτιδα"
+    ]
+  },
+  {
+    "id": "SELGAMIS-022",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "multiple-choice",
+    "question": "Ποια ήταν η διάρκεια της START;",
+    "correctAnswer": "24 εβδομάδες",
+    "explanation": "Η START είχε διάρκεια 24 εβδομάδες.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "12 εβδομάδες",
+      "16 εβδομάδες",
+      "24 εβδομάδες",
+      "52 εβδομάδες"
+    ]
+  },
+  {
+    "id": "SELGAMIS-023",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "multiple-choice",
+    "question": "Ποια ήταν η μείωση των συνολικών βλαβών ακμής με τριφαροτένη;",
+    "correctAnswer": "70%",
+    "explanation": "Η μείωση των συνολικών βλαβών ακμής με τριφαροτένη ήταν 70%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "45%",
+      "55%",
+      "70%",
+      "85%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-024",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "multiple-choice",
+    "question": "Ποια ήταν η αντίστοιχη μείωση με vehicle;",
+    "correctAnswer": "44,9%",
+    "explanation": "Η αντίστοιχη μείωση με vehicle ήταν 44,9%.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "44,9%",
+      "60%",
+      "32%",
+      "70%"
+    ]
+  },
+  {
+    "id": "SELGAMIS-025",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "free-text",
+    "question": "Πόσες ουλές μειώθηκαν με τριφαροτένη στη Week 24;",
+    "correctAnswer": "5,9 ουλές",
+    "explanation": "Στη Week 24 καταγράφηκε μείωση κατά 5,9 ουλές με τριφαροτένη.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "acceptedAnswers": [
+      "5,9 ουλές",
+      "5,9",
+      "5.9",
+      "5,9 ουλες",
+      "5.9 ουλες"
+    ]
+  },
+  {
+    "id": "SELGAMIS-026",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "free-text",
+    "question": "Πόσες ουλές μειώθηκαν με vehicle;",
+    "correctAnswer": "2,7 ουλές",
+    "explanation": "Με vehicle καταγράφηκε μείωση κατά 2,7 ουλές.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "acceptedAnswers": [
+      "2,7 ουλές",
+      "2,7",
+      "2.7",
+      "2,7 ουλες",
+      "2.7 ουλες"
+    ]
+  },
+  {
+    "id": "SELGAMIS-027",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "multiple-choice",
+    "question": "Ποια ήταν η διαφορά μεταξύ των δύο ομάδων;",
+    "correctAnswer": "3,2",
+    "explanation": "Η διαφορά μεταξύ των δύο ομάδων ήταν 3,2 ουλές.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "1,2",
+      "2,1",
+      "3,2",
+      "5,9"
+    ]
+  },
+  {
+    "id": "SELGAMIS-028",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "true-false",
+    "question": "Η START έδειξε στατιστικά σημαντική διαφορά μόνο στο τέλος της μελέτης.",
+    "correctAnswer": "Λάθος",
+    "explanation": "Η σημαντική διαφορά στις ουλές εμφανίστηκε νωρίτερα και όχι μόνο στο τέλος της μελέτης.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Σωστό",
+      "Λάθος"
+    ]
+  },
+  {
+    "id": "SELGAMIS-029",
+    "brand": "SELGAMIS",
+    "section": "START Study",
+    "type": "multiple-choice",
+    "question": "Από ποια εβδομάδα εμφανίστηκε σημαντική διαφορά στις ουλές;",
+    "correctAnswer": "Week 2",
+    "explanation": "Σημαντική διαφορά στις ουλές εμφανίστηκε από την Week 2.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Week 1",
+      "Week 2",
+      "Week 12",
+      "Week 24"
+    ]
+  },
+  {
+    "id": "SELGAMIS-030",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "multiple-choice",
+    "question": "Ποια είναι η συχνότερη κατηγορία ανεπιθύμητων ενεργειών;",
+    "correctAnswer": "Τοπικοί δερματικοί ερεθισμοί",
+    "explanation": "Οι συχνότερες ανεπιθύμητες ενέργειες αφορούν τοπικούς δερματικούς ερεθισμούς.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Καρδιολογικές",
+      "Τοπικοί δερματικοί ερεθισμοί",
+      "Ηπατικές",
+      "Νευρολογικές"
+    ]
+  },
+  {
+    "id": "SELGAMIS-031",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "free-text",
+    "question": "Αναφέρετε μία συχνή τοπική ανεπιθύμητη ενέργεια.",
+    "correctAnswer": "Ξηρότητα / Ερύθημα / Απολέπιση / Κάψιμο",
+    "explanation": "Αποδεκτές απαντήσεις: ξηρότητα, ερύθημα, απολέπιση ή αίσθημα καύσου.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "acceptedAnswers": [
+      "Ξηρότητα / Ερύθημα / Απολέπιση / Κάψιμο",
+      "ξηροτητα",
+      "ερυθημα",
+      "απολεπιση",
+      "καψιμο",
+      "dryness",
+      "erythema",
+      "scaling",
+      "burning"
+    ]
+  },
+  {
+    "id": "SELGAMIS-032",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "true-false",
+    "question": "Η ανεκτικότητα ήταν καλύτερη στον κορμό σε σχέση με το πρόσωπο.",
+    "correctAnswer": "Σωστό",
+    "explanation": "Σύμφωνα με τη βάση, η ανεκτικότητα ήταν καλύτερη στον κορμό από ό,τι στο πρόσωπο.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Σωστό",
+      "Λάθος"
+    ]
+  },
+  {
+    "id": "SELGAMIS-033",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "multiple-choice",
+    "question": "Πότε εμφανίζεται συνήθως η μέγιστη ερεθιστική αντίδραση;",
+    "correctAnswer": "Πρώτες εβδομάδες θεραπείας",
+    "explanation": "Η μέγιστη ερεθιστική αντίδραση εμφανίζεται συνήθως στις πρώτες εβδομάδες της θεραπείας.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Μετά τον 3ο μήνα",
+      "Πρώτες εβδομάδες θεραπείας",
+      "Μετά τον 1ο χρόνο",
+      "Ποτέ"
+    ]
+  },
+  {
+    "id": "SELGAMIS-034",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "multiple-choice",
+    "question": "Τι συνιστάται από την έναρξη της θεραπείας;",
+    "correctAnswer": "Ενυδατική κρέμα",
+    "explanation": "Συνιστάται η χρήση ενυδατικής κρέμας από την έναρξη της θεραπείας.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Αντιβιοτικό",
+      "Απολέπιση",
+      "Ενυδατική κρέμα",
+      "Κανένα από τα παραπάνω"
+    ]
+  },
+  {
+    "id": "SELGAMIS-035",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "multiple-choice",
+    "question": "Τι SPF συνιστά το SPC;",
+    "correctAnswer": "30+",
+    "explanation": "Σύμφωνα με τη βάση, συνιστάται SPF 30+.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "15",
+      "20",
+      "25",
+      "30+"
+    ]
+  },
+  {
+    "id": "SELGAMIS-036",
+    "brand": "SELGAMIS",
+    "section": "Safety",
+    "type": "true-false",
+    "question": "Το SELGAMIS® αντενδείκνυται στην κύηση.",
+    "correctAnswer": "Σωστό",
+    "explanation": "Σύμφωνα με τη βάση, το SELGAMIS® αντενδείκνυται στην κύηση.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Σωστό",
+      "Λάθος"
+    ]
+  },
+  {
+    "id": "SELGAMIS-037",
+    "brand": "SELGAMIS",
+    "section": "Fast Recall",
+    "type": "multiple-choice",
+    "question": "RAR-γ ή RAR-β;",
+    "correctAnswer": "RAR-γ",
+    "explanation": "Η τριφαροτένη παρουσιάζει εκλεκτικότητα για τον RAR-γ.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "RAR-γ",
+      "RAR-β"
+    ]
+  },
+  {
+    "id": "SELGAMIS-038",
+    "brand": "SELGAMIS",
+    "section": "Fast Recall",
+    "type": "multiple-choice",
+    "question": "Face + Trunk ή μόνο Face;",
+    "correctAnswer": "Face + Trunk",
+    "explanation": "Το SELGAMIS® συνδέεται με αντιμετώπιση της ακμής τόσο στο πρόσωπο όσο και στον κορμό.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Face + Trunk",
+      "Μόνο Face"
+    ]
+  },
+  {
+    "id": "SELGAMIS-039",
+    "brand": "SELGAMIS",
+    "section": "Fast Recall",
+    "type": "multiple-choice",
+    "question": "Week 12 ή Week 52 long-term study;",
+    "correctAnswer": "Week 52",
+    "explanation": "Η long-term study είχε διάρκεια 52 εβδομάδες.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Week 12",
+      "Week 52"
+    ]
+  },
+  {
+    "id": "SELGAMIS-040",
+    "brand": "SELGAMIS",
+    "section": "Fast Recall",
+    "type": "multiple-choice",
+    "question": "Το 70% reduction αφορά:",
+    "correctAnswer": "Συνολικές βλάβες ακμής",
+    "explanation": "Το 70% αφορά τη μείωση των συνολικών βλαβών ακμής.",
+    "source": "Source pending verification",
+    "medicalReviewStatus": "pending-review",
+    "medicalReviewDate": null,
+    "enabled": true,
+    "options": [
+      "Ουλές",
+      "Συνολικές βλάβες ακμής"
+    ]
+  }
+]
